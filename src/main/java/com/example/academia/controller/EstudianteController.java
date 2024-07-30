@@ -1,7 +1,6 @@
 package com.example.academia.controller;
 
 import com.example.academia.dto.EstudianteDTO;
-import com.example.academia.dto.GenericResponse;
 import com.example.academia.model.Estudiante;
 import com.example.academia.service.IEstudianteService;
 import com.example.academia.util.MapperUtil;
@@ -56,13 +55,6 @@ public class EstudianteController {
     }
 
     /********** queries **********/
-    /*
-    @GetMapping("/get/age/desc")
-    public ResponseEntity<GenericResponse<EstudianteDTO>> findByNameDesc1(@RequestParam("age") String name, @RequestParam("desc") String description) {
-        List<EstudianteDTO> list = mapperUtil.mapList(service.getNameAndDescription1(name, description), EstudianteDTO.class, "categoryMapper");
-
-        return ResponseEntity.ok(new GenericResponse<>(200, "success", list));
-    }*/
     @GetMapping("/get/edad/desc")
     public ResponseEntity<List<EstudianteDTO>> readAllAgeOrderDesc() throws Exception {
         List<EstudianteDTO> list = mapperUtil.mapList(service.findByAllAgeOrderDesc(), EstudianteDTO.class);

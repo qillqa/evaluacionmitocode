@@ -5,7 +5,6 @@ import com.example.academia.repo.IEstudianteRepo;
 import com.example.academia.repo.IGenericRepo;
 import com.example.academia.service.IEstudianteService;
 import lombok.RequiredArgsConstructor;
-import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
 import java.util.List;

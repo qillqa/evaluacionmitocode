@@ -11,6 +11,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Map;
+import java.util.Set;
 
 @RestController
 @RequestMapping("/matriculas")
@@ -31,5 +33,12 @@ public class MatriculaController {
         Matricula obj = service.save(mapperUtil.map(dto, Matricula.class));
 
         return new ResponseEntity<>(mapperUtil.map(obj, MatriculaDTO.class), HttpStatus.CREATED);
+    }
+
+    @GetMapping("/coursesStudents")
+    public ResponseEntity<Map<String, Set<String>>> listCoursesStudents(){
+        Map<String, Set<String>> coursesStudents = service.getCursosConEstudiantes();
+
+        return ResponseEntity.ok(coursesStudents);
     }
 }

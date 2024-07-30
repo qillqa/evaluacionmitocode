@@ -25,14 +25,6 @@ public class GlobalErrorHandler extends ResponseEntityExceptionHandler {
         return new ResponseEntity<>(errorResponse, HttpStatus.INTERNAL_SERVER_ERROR);
     }
 
-    //Disponible luego de validar la existencia del Token
-    @ExceptionHandler(AccessDeniedException.class)
-    public ResponseEntity<CustomErrorResponse> handleAccessDeniedException(AccessDeniedException ex, WebRequest req) {
-        CustomErrorResponse errorResponse = new CustomErrorResponse(LocalDateTime.now(), ex.getMessage(), req.getDescription(false));
-
-        return new ResponseEntity<>(errorResponse, HttpStatus.FORBIDDEN);
-    }
-
     @ExceptionHandler(ModelNotFoundException.class)
     public ResponseEntity<GenericResponse<CustomErrorResponse>> handleModelNotFoundException(ModelNotFoundException ex, WebRequest req) {
         CustomErrorResponse errorResponse = new CustomErrorResponse(LocalDateTime.now(), ex.getMessage(), req.getDescription(false));

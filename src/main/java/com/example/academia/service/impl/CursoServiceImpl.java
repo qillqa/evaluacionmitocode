@@ -16,4 +16,5 @@ public class CursoServiceImpl  extends CRUDImpl<Curso, Integer> implements ICurs
     protected IGenericRepo<Curso, Integer> getRepo() {
         return repo;
     }
+
 }
